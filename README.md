@@ -1,4 +1,6 @@
-# C4Nexus PLP – Junior Developer Technical Task
+# C4Nexus PLP – 
+<img width="1031" height="890" alt="Screenshot 2026-02-20 221253" src="https://github.com/user-attachments/assets/b97a6c65-8999-426f-bcd4-0d4bc6847ec5" />
+Junior Developer Technical Task
 
 ## Implemented
 
