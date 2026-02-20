@@ -1,16 +1,50 @@
-# React + Vite
+# C4Nexus PLP – Junior Developer Technical Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Implemented
 
-Currently, two official plugins are available:
+- Sticky header with category switch (Bags / Shoes)
+- Product grid with initial 20 items (max 5 rows on desktop)
+- Load More functionality
+- Filtering by:
+  - Color
+  - Price range
+- Sorting by:
+  - Alphabetical (A–Z)
+  - Alphabetical (Z–A)
+  - Price Low–High
+  - Price High–Low
+- Product tile contains:
+  - Image
+  - Product name
+  - Short description
+  - Price (with discounted price for some products)
+  - Star rating
+  - Add to Cart button (with confirmation alert)
+- Responsive layout (desktop, tablet, mobile)
+- Footer section
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React (Vite)
+- JavaScript (ES6+)
+- CSS (custom styling)
+- No external UI libraries used
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How It Works
+
+Products are generated per category and stored locally.
+Filtering and sorting are handled using React state and memoized computations.
+Pagination is implemented using a visible item counter and Load More button.
+
+---
+
+## Challenges
+
+- Maintaining 5 rows maximum on desktop (4 columns layout)
+- Keeping layout responsive while preserving filter sidebar
+- Managing state for filtering, sorting and pagination simultaneously
+- Ensuring UI matches wireframe requirements while keeping logic intact

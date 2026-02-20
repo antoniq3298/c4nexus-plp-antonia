@@ -3,12 +3,14 @@ const money = (v) => `$${Number(v).toFixed(2)}`;
 function Stars({ value }) {
   const full = Math.floor(value);
   const half = value - full >= 0.5;
+
   const stars = [];
   for (let i = 0; i < 5; i++) {
     if (i < full) stars.push("★");
-    else if (i === full && half) stars.push("⯪"); // half-ish glyph
+    else if (i === full && half) stars.push("⯪");
     else stars.push("☆");
   }
+
   return (
     <div className="stars" aria-label={`Rating ${value} out of 5`}>
       <span className="stars__icons">{stars.join(" ")}</span>
@@ -32,6 +34,7 @@ export default function ProductCard({ product }) {
 
       <div className="card__body">
         <h4 className="card__title">{product.name}</h4>
+
         <p className="card__desc">{product.description}</p>
 
         <div className="card__meta">

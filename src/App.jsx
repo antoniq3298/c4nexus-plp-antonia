@@ -6,7 +6,7 @@ import ProductGrid from "./components/ProductGrid.jsx";
 import Footer from "./components/Footer.jsx";
 import { categories, productsByCategory } from "./data/products.js";
 
-const PAGE_SIZE = 20; // 5 rows * 4 cards (desktop baseline)
+const PAGE_SIZE = 20;
 
 const getEffectivePrice = (p) => (p.discountedPrice ?? p.price);
 
@@ -40,7 +40,6 @@ export default function App() {
   const [priceMax, setPriceMax] = useState(9999);
 
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   const activeCategory = categories.find((c) => c.id === activeCategoryId);
@@ -102,6 +101,7 @@ export default function App() {
       />
 
       <main className="main">
+        {/* Drawer only (Filters component should render drawer when isMobileOpen=true) */}
         <Filters
           allProducts={allProducts}
           selectedColors={selectedColors}
@@ -116,18 +116,27 @@ export default function App() {
         />
 
         <section className="content">
-          <div className="category">
-            <div className="category__row">
-              <div>
-                <h1 className="category__title">{activeCategory.name}</h1>
-                <p className="category__desc">{activeCategory.description}</p>
-              </div>
+          {/* PLP title + count like the reference */}
+          <div className="plpHeader">
+            <div className="plpTitle">
+              <div className="plpH1">{activeCategory.name.toUpperCase()}</div>
+              <div className="plpCount">{filteredAndSorted.length} Products</div>
+            </div>
 
-              <SortBar
-                sortValue={sortValue}
-                onChangeSort={onChangeSort}
-                onOpenMobileFilters={() => setMobileFiltersOpen(true)}
-              />
+            {/* Toolbar: Open Filter + Sort */}
+            <div className="toolbar">
+              <button className="linkBtn" type="button" onClick={() => setMobileFiltersOpen(true)}>
+                Open Filter
+              </button>
+
+              <div className="sortInline">
+                <span className="sortLabel">Sort</span>
+                <SortBar
+                  sortValue={sortValue}
+                  onChangeSort={onChangeSort}
+                  onOpenMobileFilters={() => {}}
+                />
+              </div>
             </div>
           </div>
 
